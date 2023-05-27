@@ -1,0 +1,31 @@
+{
+  "promotions": [
+    {
+      "id": 1,
+      "description": "20% Off Speyside",
+      "scope": {
+        "name": "distiller",
+        "values": [
+          "Glenlivet",
+          "Glenfiddich",
+          "Glenlivet"
+        ]
+      },
+      "coupon": {
+        "value": 0.2,
+        "min_price": 0.0
+      }
+    },
+    {
+      "id": 2,
+      "description": "10% Off Purchases Over $100",
+      "scope": {
+        "name": "purchase"
+      },
+      "coupon": {
+        "value": 0.1,
+        "min_price": 0.0
+      }
+    }
+  ]
+}
