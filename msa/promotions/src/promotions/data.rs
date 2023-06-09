@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use serde_json::{from_str};
+use serde_json::from_str;
 use std::fs;
 
 #[derive(Serialize, Deserialize)]
@@ -42,13 +42,13 @@ fn read_promos_file() ->  Result<String, Box<dyn std::error::Error>> {
     }
 }
 
-fn from_file_to_promos() -> Result<Promotions, Box<dyn std::error::Error>> {
+pub fn from_file_to_promos() -> Result<Vec<Promotion>, Box<dyn std::error::Error>> {
     let file_data_string = read_promos_file()?;
 
-    let promos = from_str(&file_data_string);
+    let promos: Result<Promotions, serde_json::Error> = from_str(&file_data_string);
 
     match promos {
-        Ok(p) => Ok(p),
+        Ok(p) => Ok(p.promotions),
         Err(e) => {
             println!("{}", file_data_string);
             println!("error converting promo string to object {}", e);
@@ -56,10 +56,4 @@ fn from_file_to_promos() -> Result<Promotions, Box<dyn std::error::Error>> {
             Err(Box::new(e))
         }
     }
-}
-
-pub fn get_all() -> Result<Vec<Promotion>, Box<dyn std::error::Error>> {
-    let promos = from_file_to_promos()?;
-
-    Ok(promos.promotions)
 }

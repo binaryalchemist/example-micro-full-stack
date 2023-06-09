@@ -1,15 +1,14 @@
-mod api;
+mod promotions;
 
-use warp::Filter;
+use actix_web::{ App, HttpServer };
+use promotions::create_promotions_resource;
 
-#[tokio::main]
-async fn main() {
-    let promotions = warp::path("promotions")
-        .map(|| api::controller::search_promotions());
-
-    let routes = warp::get().and(promotions);
-
-    warp::serve(routes)
-        .run(([127, 0, 0, 1], 8082))
-        .await;
+#[actix_web::main] // or #[tokio::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new().service(create_promotions_resource())
+    })
+    .bind(("127.0.0.1", 8080))?
+    .run()
+    .await
 }
