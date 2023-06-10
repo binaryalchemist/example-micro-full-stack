@@ -44,7 +44,7 @@ struct Catalogue {
 #[derive(Serialize, Deserialize)]
 pub struct Store {
     name: String,
-    promotions: Promotions,
+    description: String,
     catalogue: Catalogue
 }
 
@@ -71,12 +71,11 @@ async fn fetch_catalogue() -> Result<Catalogue, Box<dyn StdError>> {
 }
 
 async fn get_store_data() -> Result<Store, Box<dyn StdError>> {
-    let scotch_promotions = fetch_promotions().await?;
     let scotch_catalogue = fetch_catalogue().await?;
 
     let store = Store {
         name: String::from("Scotch Store"),
-        promotions: scotch_promotions,
+        description: String::from("Store With A Few Scotches"),
         catalogue: scotch_catalogue
     };
 
