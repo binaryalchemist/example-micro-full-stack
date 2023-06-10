@@ -48,17 +48,6 @@ pub struct Store {
     catalogue: Catalogue
 }
 
-async fn fetch_promotions() -> Result<Promotions, Box<dyn StdError>> {
-    let get_promotions_url = String::from("http:://127.0.0.1::8081/promotions");
-
-    let response = reqwest::get(&get_promotions_url)
-        .await?
-        .json::<Promotions>()
-        .await?;
-    
-    Ok(response)
-}
-
 async fn fetch_catalogue() -> Result<Catalogue, Box<dyn StdError>> {
     let get_catalogue_url = String::from("http:://127.0.0.1::8082/catalogue");
 
