@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "name": "Glengoolie Blue",
+      "distillery": "Glengoolie",
+      "price": 231.00
+    },
+    {
+      "name": "Glenlivet 10",
+      "distillery": "Glenlivet",
+      "price": 72.00
+    },
+    {
+      "name": "Ardbeg The Wee Beastie",
+      "distillery": "Ardbeg",
+      "price": 55.00
+    },
+    {
+      "name": "Laphraoig 21 Travelers",
+      "distillery": "Laphraoig",
+      "price": 135.85
+    }
+  ]
+}
