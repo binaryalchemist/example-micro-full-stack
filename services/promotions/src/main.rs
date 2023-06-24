@@ -8,7 +8,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new().service(create_promotions_resource())
     })
-    .bind(("127.0.0.1", 8081))?
+    .bind(("127.0.0.1", 8085))?
     .run()
     .await
 }

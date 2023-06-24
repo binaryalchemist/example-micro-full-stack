@@ -8,7 +8,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new().service(create_catalogue_resource())
     })
-    .bind(("127.0.0.1", 8082))?
+    .bind(("127.0.0.1", 8086))?
     .run()
     .await
 }
